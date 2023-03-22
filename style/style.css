@@ -40,9 +40,10 @@ font-size: 3em;
 text-align: right;
 padding: 20px;
 border-radius: 5px;
+height: 57px;
 }
 
-button {
+input[type="button"], button {
 background-color: #ccc;
 color: #333;
 font-size: 2em;
@@ -50,14 +51,20 @@ border: none;
 border-radius: 5px;
 padding: 10px;
 cursor: pointer;
-transition: all 0.2s ease-in-out;
+transition: all 0.1s ease-in-out;
 }
 
 #enter {
    padding: 10px;
 }
 
-button:hover {
+input[type="button"]:hover, button:hover {
 background-color: #ddd;
 transform: scale(1.1);
 }
+
+input[type="button"]:active, button:active {
+   background-color: #ddd;
+   transform: scale(1.0);
+   }
+   

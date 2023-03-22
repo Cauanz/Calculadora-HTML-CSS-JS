@@ -1,6 +1,8 @@
-const buttons = document.querySelectorAll(".button");
+const buttons = document.querySelectorAll(".buttons");
 const visor = document.querySelector(".display");
-let mem = '';
+let mem = 0;
+visor.textContent = 0;
+let lastButtonClicked = '';
 
 
 buttons.forEach((button) => {
@@ -11,26 +13,33 @@ buttons.forEach((button) => {
 
 handleButton = (button) => {
    
-   let buttonValue = button.target.textContent;
+   let buttonValue = button.value;
 
    if (/\d|\./.test(buttonValue)){
 
+      if( visor.textContent === '0' ){
+         visor.textContent = buttonValue;
+      } else {
       visor.textContent += buttonValue;
+      }
 
    } else if (buttonValue === '+'){
 
       mem += parseFloat(visor.textContent);
-      visor.textContent = '';
+      visor.textContent += buttonValue;
+      lastButtonClicked = '+';
 
    } else if (buttonValue === '-'){
 
       mem -= parseFloat(visor.textContent);
-      visor.textContent = '';
+      visor.textContent += buttonValue;
+      lastButtonClicked = '-';
 
    } else if (buttonValue === '*'){
 
       mem *= parseFloat(visor.textContent);
-      visor.textContent = '';
+      visor.textContent += buttonValue;
+      lastButtonClicked = '*';
 
    } else if (buttonValue === '/'){
 
@@ -38,7 +47,8 @@ handleButton = (button) => {
          visor.textContent = 'Error, Divisão por 0';
       } else {
          mem /= parseFloat(visor.textContent);
-         visor.textContent = '';
+         visor.textContent += buttonValue;
+         lastButtonClicked = '/';
       }
 
    } else if (buttonValue === '='){
@@ -75,11 +85,11 @@ handleButton = (button) => {
       }
    } else if (buttonValue === 'C'){
 
-      visor.textContent = '';
+      visor.textContent = 0;
       mem = 0;
 
-   } else if (buttonValue === 'backspace') {
-      visor.textContent = display.textContent.slice(0, -1);
+   } else if (buttonValue === 'Backspace') {
+      visor.textContent = visor.textContent.slice(0, -1);
       };
    };
 
