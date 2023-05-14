@@ -1,5 +1,7 @@
 * {
    font-family: Arial, Helvetica, sans-serif;
+   margin: 0;
+   padding: 0;
 }
 
 body {
@@ -67,4 +69,12 @@ input[type="button"]:active, button:active {
    background-color: #ddd;
    transform: scale(1.0);
    }
-   
+
+#res {
+   grid-column-end: 4;
+   grid-column-start: 2;
+}
+
+#reset {
+   color: #cf1515;
+}
